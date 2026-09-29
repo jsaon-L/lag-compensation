@@ -1,78 +1,14 @@
 # lag-compensation
 
 
-有，而且你这个问题已经不是普通的“**怎么做射线检测**”了，而是进入了竞技 FPS 最核心的一层：
+https://zhuanlan.zhihu.com/p/1976699507237492478
+https://danieljimenezmorales.github.io/2023-10-29-the-art-of-hit-registration/
+https://www.riotgames.com/en/news/demolishing-wallhacks-valorants-fog-war?utm_source=chatgpt.com
+https://2xko.riotgames.com/en-us/news/dev/how-2xko-handles-online-play/?utm_source=chatgpt.com
+https://www.riotgames.com/en/news/valorants-128-tick-servers?utm_source=chatgpt.com
+https://www.riotgames.com/en/news/peeking-valorants-netcode
+https://playvalorant.com/en-us/news/dev/the-state-of-hit-registration/?utm_source=chatgpt.com
 
-> **在网络延迟 + Server Rewind 的情况下，如何保证“命中位置、角色姿态、护盾、无敌、增伤、减伤、技能状态”等全部使用正确的时间状态进行判定。**
-
-我帮你筛了一轮资料。**如果你现在正在做 UE5 射击游戏，我最推荐你重点研究 VALORANT / Overwatch / CoD / Halo Reach 四套思路。**
-
----
-
-# 一、先给你一个最重要的结论
-
-你需要把“射击判定”拆成至少三个时间概念：
-
-```text
-T_fire      = 玩家开枪时刻
-T_hit       = 子弹实际命中时刻
-T_server    = 服务器当前时刻
-```
-
-对于 Hitscan：
-
-```text
-玩家开枪
-   ↓
-Client 记录 T_fire
-   ↓
-Server 收到开枪请求
-   ↓
-Server Rewind
-   ↓
-恢复 T_fire 时刻的：
-    ├── 玩家位置
-    ├── Hitbox
-    ├── Animation Pose
-    ├── Shield
-    ├── Invulnerable
-    ├── Damage Buff
-    ├── Damage Reduction
-    ├── Armor
-    └── 其他影响“这一发子弹”的状态
-   ↓
-进行 Hit Detection
-   ↓
-计算最终伤害
-   ↓
-Server Authoritative
-```
-
-这也是为什么你之前问我的：
-
-> **“回朔命中了，但是现在这个时间我已经获得无敌 Buff，到底应该算不算伤害？”**
-
-其实是一个非常深的网络战斗架构问题。
-
-正确的架构通常不是简单地：
-
-```cpp
-Rewind Hitbox
-+
-Current Gameplay State
-```
-
-而应该进一步区分：
-
-```cpp
-Historical Combat State
-+
-Historical Hitbox
-```
-
-否则一定会出现时间穿越式 Bug。
-
----
 
 # 二、第一优先级：VALORANT 官方资料
 
