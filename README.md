@@ -1,13 +1,13 @@
 # lag-compensation
 
 
-https://zhuanlan.zhihu.com/p/1976699507237492478
-https://danieljimenezmorales.github.io/2023-10-29-the-art-of-hit-registration/
-https://www.riotgames.com/en/news/demolishing-wallhacks-valorants-fog-war?utm_source=chatgpt.com
-https://2xko.riotgames.com/en-us/news/dev/how-2xko-handles-online-play/?utm_source=chatgpt.com
-https://www.riotgames.com/en/news/valorants-128-tick-servers?utm_source=chatgpt.com
-https://www.riotgames.com/en/news/peeking-valorants-netcode
-https://playvalorant.com/en-us/news/dev/the-state-of-hit-registration/?utm_source=chatgpt.com
+* https://zhuanlan.zhihu.com/p/1976699507237492478
+* https://danieljimenezmorales.github.io/2023-10-29-the-art-of-hit-registration/
+* https://www.riotgames.com/en/news/demolishing-wallhacks-valorants-fog-war?utm_source=chatgpt.com
+* https://2xko.riotgames.com/en-us/news/dev/how-2xko-handles-online-play/?utm_source=chatgpt.com
+* https://www.riotgames.com/en/news/valorants-128-tick-servers?utm_source=chatgpt.com
+* https://www.riotgames.com/en/news/peeking-valorants-netcode
+* https://playvalorant.com/en-us/news/dev/the-state-of-hit-registration/?utm_source=chatgpt.com
 
 
 # 二、第一优先级：VALORANT 官方资料
